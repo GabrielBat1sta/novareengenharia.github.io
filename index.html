@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novare Engenharia - Soluções em Engenharia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #FFA500;
+            font-size: 28px;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .logo::after {
+            content: "ENGENHARIA";
+            display: block;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-top: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFA500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #FFA500;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+        }
+
+        h2 {
+            color: #FFA500;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 2px solid #FFA500;
+            padding-bottom: 15px;
+            display: inline-block;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+
+        .proposito {
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            text-align: center;
+        }
+
+        .proposito p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .missao-visao {
+            background: transparent;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .missao-visao div {
+            padding: 30px;
+            border-left: 4px solid #FFA500;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .missao-visao h3 {
+            color: #FFA500;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .missao-visao p {
+            color: white;
+            line-height: 1.8;
+        }
+
+        .valores-container {
+            background: transparent;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .valor-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-top: 4px solid #FFA500;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .valor-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.2);
+        }
+
+        .valor-item h4 {
+            color: #FFA500;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .valor-item p {
+            color: white;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .numero {
+            display: inline-block;
+            background: #FFA500;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .contato {
+            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contato h2 {
+            color: #FFA500;
+        }
+
+        .contato > .container > p {
+            color: white;
+        }
+
+        .contato-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ea853;
+            transform: scale(1.05);
+        }
+
+        .btn-telefone {
+            background: #FFA500;
+            color: white;
+        }
+
+        .btn-telefone:hover {
+            background: #e69500;
+            transform: scale(1.05);
+        }
+
+        .contato-info {
+            margin-top: 30px;
+            font-size: 18px;
+            color: white;
+        }
+
+        footer {
+            background: #001a4d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .missao-visao {
+                grid-template-columns: 1fr;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .contato-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">NOVARE</a>
+            <nav>
+                <a href="#proposito">Propósito</a>
+                <a href="#missao-visao">Missão e Visão</a>
+                <a href="#valores">Valores</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>NOVARE ENGENHARIA</h1>
+            <p class="hero-subtitle">Transformando espaços e oportunidades em progresso real</p>
+        </div>
+    </section>
+
+    <section id="proposito" class="proposito">
+        <div class="container">
+            <h2>PROPÓSITO</h2>
+            <p>Transformar espaços e oportunidades em progresso real, construindo obras que geram valor para as pessoas, para as cidades e para quem acredita que o trabalho bem-feito ainda é o caminho mais sólido para crescer.</p>
+        </div>
+    </section>
+
+    <section id="missao-visao">
+        <div class="container">
+            <h2 style="grid-column: 1 / -1;">MISSÃO E VISÃO</h2>
+            <div class="missao-visao">
+                <div>
+                    <h3>MISSÃO</h3>
+                    <p>Entregar soluções de engenharia com qualidade, segurança e responsabilidade, unindo técnica, tradição e inovação. Atuamos para resolver problemas de verdade – de reformas simples a estruturas complexas — sempre com transparência, preço justo e foco no resultado que o cliente precisa.</p>
+                </div>
+                <div>
+                    <h3>VISÃO</h3>
+                    <p>Ser referência em Minas Gerais como uma empresa confiável, eficiente e em constante evolução, expandindo nossa atuação para grandes obras, parcerias públicas e projetos imobiliários de alto impacto. Queremos crescer de forma sólida, construir patrimônio, gerar empregos e marcar presença como uma engenharia que cumpre o que promete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="valores">
+        <div class="container">
+            <h2>VALORES</h2>
+            <div class="valores-container">
+                <div class="valor-item">
+                    <h4><span class="numero">1</span>Trabalho sério</h4>
+                    <p>Aqui, serviço é compromisso. O que começa, termina. E termina bem-feito.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">2</span>Honestidade acima de tudo</h4>
+                    <p>Negócio bom é o que é claro, justo e sem enrolação — para nós e para o cliente.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">3</span>Crescimento contínuo</h4>
+                    <p>Buscamos evoluir sempre. Técnica, profissionalismo, estrutura e visão de futuro.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">4</span>Responsabilidade com segurança</h4>
+                    <p>Obra boa nasce de planejamento, disciplina e respeito à segurança.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">5</span>Tradição combinada com inovação</h4>
+                    <p>Honramos o jeito tradicional de construir, mas usamos métodos modernos para fazer mais rápido e com mais eficiência.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">6</span>Foco no cliente</h4>
+                    <p>Escutamos, entendemos e entregamos o que realmente resolve o problema do cliente.</p>
+                </div>
+                <div class="valor-item">
+                    <h4><span class="numero">7</span>Fé, resiliência e determinação</h4>
+                    <p>Acreditamos no esforço diário, na persistência e na fé como motores para superar desafios e criar novas oportunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2>ENTRE EM CONTATO</h2>
+            <p style="font-size: 18px; margin-top: 20px;">Vamos conversar sobre seu projeto. Escolha a melhor forma de nos contatar:</p>
+            <div class="contato-buttons">
+                <a href="https://wa.me/553171829875" class="btn btn-whatsapp">
+                    <span>💬</span> WhatsApp
+                </a>
+                <a href="tel:SEUNUMERO" class="btn btn-telefone">
+                    <span>☎️</span> Ligar
+                </a>
+            </div>
+            <div class="contato-info">
+                <p style="margin-top: 30px;">
+                    <strong>Telefone:</strong> (31) 97182-9875<br>
+                    <strong>WhatsApp:</strong> (31) 97182-9875<br>
+                    <strong>Email:</strong> contato@novareengenharia.com.br
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Novare Engenharia Ltda. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Links de contato - Atualize com seus dados reais
+        document.querySelector('.btn-whatsapp').href = 'https://wa.me/553171829875?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20seus%20serviços.';
+        document.querySelector('.btn-telefone').href = 'tel:+553171829875';
+    </script>
+</body>
+</html>
