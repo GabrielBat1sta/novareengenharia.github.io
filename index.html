@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novare Engenharia - Soluções em Engenharia</title>
+    <title>Novare Engenharia - Transformando Espaços</title>
     <style>
         * {
             margin: 0;
@@ -13,170 +13,448 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
+            color: #ffffff;
             line-height: 1.6;
-            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            overflow-x: hidden;
         }
 
+        /* Header */
         header {
-            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
             padding: 20px 0;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .container {
+        nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
-            color: #FFA500;
             font-size: 28px;
-            font-weight: 900;
-            text-decoration: none;
+            font-weight: bold;
+            color: #F39C12;
             letter-spacing: 2px;
-            line-height: 1.2;
         }
 
-        .logo::after {
-            content: "ENGENHARIA";
+        .logo span {
             display: block;
             font-size: 14px;
-            letter-spacing: 3px;
-            margin-top: 2px;
+            letter-spacing: 4px;
+            color: #F39C12;
         }
 
-        nav a {
-            color: white;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 20px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #FFA500;
+        .nav-links a:hover {
+            color: #F39C12;
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #F39C12;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
-            color: white;
-            padding: 80px 20px;
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            padding: 150px 20px 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23F39C12" opacity="0.1"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
+            color: #F39C12;
             margin-bottom: 20px;
-            color: #FFA500;
+            letter-spacing: 4px;
+            animation: fadeInDown 1s;
         }
 
-        .hero-subtitle {
+        .hero h1 span {
+            display: block;
+            font-size: 24px;
+            letter-spacing: 8px;
+            margin-top: 10px;
+        }
+
+        .hero p {
             font-size: 20px;
-            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 0 auto 40px;
             line-height: 1.8;
+            animation: fadeInUp 1s;
         }
 
-        section {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
-        }
-
-        h2 {
-            color: #FFA500;
-            font-size: 36px;
-            margin-bottom: 40px;
-            text-align: center;
-            border-bottom: 2px solid #FFA500;
-            padding-bottom: 15px;
+        .cta-button {
+            background: #F39C12;
+            color: #002147;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
             display: inline-block;
-            width: 100%;
+            animation: fadeInUp 1s 0.3s both;
+        }
+
+        .cta-button:hover {
+            background: #E67E22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Propósito Section */
+        .proposito {
+            background: #003366;
+            padding: 80px 20px;
+        }
+
+        .proposito-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: #F39C12;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            animation: fadeIn 1s;
+        }
+
+        .proposito-content p {
+            font-size: 20px;
+            line-height: 1.8;
+            animation: fadeIn 1s 0.2s both;
+        }
+
+        /* Missão e Visão Section */
+        .missao-visao {
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            padding: 80px 20px;
+        }
+
+        .missao-visao-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #F39C12;
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(243, 156, 18, 0.2);
+        }
+
+        .box h2 {
+            font-size: 42px;
+            color: #F39C12;
+            margin-bottom: 20px;
             letter-spacing: 2px;
         }
 
-        .proposito {
-            background: linear-gradient(135deg, #001a4d 0%, #003366 100%);
-            text-align: center;
-        }
-
-        .proposito p {
+        .box p {
             font-size: 18px;
             line-height: 1.8;
-            max-width: 900px;
+        }
+
+        /* Valores Section */
+        .valores {
+            background: #003366;
+            padding: 80px 20px;
+        }
+
+        .valores-content {
+            max-width: 1200px;
             margin: 0 auto;
-            color: white;
         }
 
-        .missao-visao {
-            background: transparent;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 30px;
+        .valores-content h2 {
+            font-size: 48px;
+            color: #F39C12;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 3px;
         }
 
-        .missao-visao div {
-            padding: 30px;
-            border-left: 4px solid #FFA500;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .missao-visao h3 {
-            color: #FFA500;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .missao-visao p {
-            color: white;
-            line-height: 1.8;
-        }
-
-        .valores-container {
-            background: transparent;
+        .valores-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
 
         .valor-item {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-top: 4px solid #FFA500;
-            border-radius: 4px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #F39C12;
+            transition: all 0.3s;
         }
 
         .valor-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.2);
+            background: rgba(243, 156, 18, 0.1);
+            transform: translateX(10px);
         }
 
-        .valor-item h4 {
-            color: #FFA500;
-            font-size: 18px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
+        .valor-item h3 {
+            color: #F39C12;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .valor-item .numero {
+            font-size: 32px;
+            font-weight: bold;
+            color: #F39C12;
+            margin-bottom: 10px;
         }
 
         .valor-item p {
-            color: white;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.6;
         }
+
+        /* Trabalhos Section */
+        .trabalhos {
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            padding: 80px 20px;
+        }
+
+        .trabalhos-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trabalhos-content h2 {
+            font-size: 48px;
+            color: #F39C12;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-slide .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 33, 71, 0.95), transparent);
+            padding: 30px;
+            color: #ffffff;
+        }
+
+        .slide-caption h3 {
+            color: #F39C12;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .slide-caption p {
+            font-size: 16px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(243, 156, 18, 0.8);
+            border: none;
+            color: #002147;
+            font-size: 24px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: #F39C12;
+        }
+
+        .carousel-nav.prev {
+            left: 20px;
+        }
+
+        .carousel-nav.next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid #F39C12;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: #F39C12;
+            transform: scale(1.2);
+        }
+
+        /* Contato Section */
+        /* .contato {
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            padding: 80px 20px;
+        }
+
+        .contato-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-size: 48px;
+            color: #F39C12;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .contato p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contato-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #F39C12;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #F39C12;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        */
+
+        /* CONTATO */
 
         .numero {
             display: inline-block;
@@ -254,132 +532,292 @@
             color: white;
         }
 
+        /* Footer */
         footer {
-            background: #001a4d;
-            color: white;
+            background: #001429;
+            padding: 30px 20px;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
         }
 
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .missao-visao {
-                grid-template-columns: 1fr;
-            }
-
-            header .container {
+            .nav-links {
+                display: none;
                 flex-direction: column;
-                gap: 20px;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #002147;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             }
 
-            nav {
+            .nav-links.active {
                 display: flex;
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-                width: 100%;
             }
 
-            nav a {
-                margin: 0;
+            .menu-toggle {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
 
-            .hero-subtitle {
+            .hero h1 span {
+                font-size: 18px;
+            }
+
+            .hero p {
                 font-size: 16px;
             }
 
-            .contato-buttons {
-                flex-direction: column;
+            .section-title {
+                font-size: 32px;
             }
 
-            .btn {
-                width: 100%;
+            .box h2 {
+                font-size: 28px;
+            }
+
+            .missao-visao-container {
+                grid-template-columns: 1fr;
+            }
+
+            .valores-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <a href="#" class="logo">NOVARE</a>
-            <nav>
-                <a href="#proposito">Propósito</a>
-                <a href="#missao-visao">Missão e Visão</a>
-                <a href="#valores">Valores</a>
-                <a href="#contato">Contato</a>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">
+                NOVARE<span>ENGENHARIA</span>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Início</a></li>
+                <li><a href="#proposito" onclick="closeMenu()">Propósito</a></li>
+                <li><a href="#missao-visao" onclick="closeMenu()">Missão e Visão</a></li>
+                <li><a href="#valores" onclick="closeMenu()">Valores</a></li>
+                <li><a href="#trabalhos" onclick="closeMenu()">Trabalhos</a></li>
+                <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>NOVARE ENGENHARIA</h1>
-            <p class="hero-subtitle">Transformando espaços e oportunidades em progresso real</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>NOVARE<span>ENGENHARIA</span></h1>
+            <p>Transformando espaços e oportunidades em progresso real</p>
+            <a href="#contato" class="cta-button">Entre em Contato</a>
         </div>
     </section>
 
-    <section id="proposito" class="proposito">
-        <div class="container">
-            <h2>PROPÓSITO</h2>
+    <!-- Propósito Section -->
+    <section class="proposito fade-in-section" id="proposito">
+        <div class="proposito-content">
+            <h2 class="section-title">PROPÓSITO</h2>
             <p>Transformar espaços e oportunidades em progresso real, construindo obras que geram valor para as pessoas, para as cidades e para quem acredita que o trabalho bem-feito ainda é o caminho mais sólido para crescer.</p>
         </div>
     </section>
 
-    <section id="missao-visao">
-        <div class="container">
-            <h2 style="grid-column: 1 / -1;">MISSÃO E VISÃO</h2>
-            <div class="missao-visao">
-                <div>
-                    <h3>MISSÃO</h3>
-                    <p>Entregar soluções de engenharia com qualidade, segurança e responsabilidade, unindo técnica, tradição e inovação. Atuamos para resolver problemas de verdade – de reformas simples a estruturas complexas — sempre com transparência, preço justo e foco no resultado que o cliente precisa.</p>
-                </div>
-                <div>
-                    <h3>VISÃO</h3>
-                    <p>Ser referência em Minas Gerais como uma empresa confiável, eficiente e em constante evolução, expandindo nossa atuação para grandes obras, parcerias públicas e projetos imobiliários de alto impacto. Queremos crescer de forma sólida, construir patrimônio, gerar empregos e marcar presença como uma engenharia que cumpre o que promete.</p>
-                </div>
+    <!-- Missão e Visão Section -->
+    <section class="missao-visao fade-in-section" id="missao-visao">
+        <div class="missao-visao-container">
+            <div class="box">
+                <h2>MISSÃO</h2>
+                <p>Entregar soluções de engenharia com qualidade, segurança e responsabilidade, unindo técnica, tradição e inovação. Atuamos para resolver problemas de verdade — de reformas simples a estruturas complexas — sempre com transparência, preço justo e foco no resultado que o cliente precisa.</p>
+            </div>
+            <div class="box">
+                <h2>VISÃO</h2>
+                <p>Ser referência em Minas Gerais como uma empresa confiável, eficiente e em constante evolução, expandindo nossa atuação para grandes obras, parcerias públicas e projetos imobiliários de alto impacto. Queremos crescer de forma sólida, construir patrimônio, gerar empregos e marcar presença como uma engenharia que cumpre o que promete.</p>
             </div>
         </div>
     </section>
 
-    <section id="valores">
-        <div class="container">
+    <!-- Valores Section -->
+    <section class="valores fade-in-section" id="valores">
+        <div class="valores-content">
             <h2>VALORES</h2>
-            <div class="valores-container">
+            <div class="valores-grid">
                 <div class="valor-item">
-                    <h4><span class="numero">1</span>Trabalho sério</h4>
+                    <div class="numero">1.</div>
+                    <h3>Trabalho sério</h3>
                     <p>Aqui, serviço é compromisso. O que começa, termina. E termina bem-feito.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">2</span>Honestidade acima de tudo</h4>
-                    <p>Negócio bom é o que é claro, justo e sem enrolação — para nós e para o cliente.</p>
+                    <div class="numero">2.</div>
+                    <h3>Honestidade acima de tudo</h3>
+                    <p>Negócio bom é o que é claro, sem enrolação — para nós e para o cliente.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">3</span>Crescimento contínuo</h4>
-                    <p>Buscamos evoluir sempre. Técnica, profissionalismo, estrutura e visão de futuro.</p>
+                    <div class="numero">3.</div>
+                    <h3>Crescimento contínuo</h3>
+                    <p>Buscamos evoluir sempre: técnica, profissionalismo, estrutura e visão de futuro.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">4</span>Responsabilidade com segurança</h4>
+                    <div class="numero">4.</div>
+                    <h3>Responsabilidade com segurança</h3>
                     <p>Obra boa nasce de planejamento, disciplina e respeito à segurança.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">5</span>Tradição combinada com inovação</h4>
-                    <p>Honramos o jeito tradicional de construir, mas usamos métodos modernos para fazer mais rápido e com mais eficiência.</p>
+                    <div class="numero">5.</div>
+                    <h3>Tradição combinada com inovação</h3>
+                    <p>Honramos o jeito tradicional de construir, mas usamos métodos modernos para fazer melhor, mais rápido e com mais eficiência.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">6</span>Foco no cliente</h4>
+                    <div class="numero">6.</div>
+                    <h3>Foco no cliente</h3>
                     <p>Escutamos, entendemos e entregamos o que realmente resolve o problema do cliente.</p>
                 </div>
                 <div class="valor-item">
-                    <h4><span class="numero">7</span>Fé, resiliência e determinação</h4>
+                    <div class="numero">7.</div>
+                    <h3>Fé, resiliência e determinação</h3>
                     <p>Acreditamos no esforço diário, na persistência e na fé como motores para superar desafios e criar novas oportunidades.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Trabalhos Section -->
+    <section class="trabalhos fade-in-section" id="trabalhos">
+        <div class="trabalhos-content">
+            <h2>NOSSOS TRABALHOS</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1664902459863-29f10551a5d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBidWlsZGluZyUyMHNpdGV8ZW58MXx8fHwxNzcwNzAyMzk4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Canteiro de Obras">
+                        <div class="slide-caption">
+                            <h3>Canteiro de Obras</h3>
+                            <p>Gestão profissional e segura de todas as etapas da construção.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1695067437984-8a373ec1ba78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBidWlsZGluZ3xlbnwxfHx8fDE3NzA3MzExMTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Arquitetura Moderna">
+                        <div class="slide-caption">
+                            <h3>Arquitetura Moderna</h3>
+                            <p>Projetos contemporâneos com design arrojado e funcional.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1663058480259-2213d39f4f90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXJzJTIwc2l0ZXxlbnwxfHx8fDE3NzA3Mzc3MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Equipe Profissional">
+                        <div class="slide-caption">
+                            <h3>Equipe Profissional</h3>
+                            <p>Mão de obra qualificada e comprometida com a excelência.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1634586648651-f1fb9ec10d90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidWlsZGluZyUyMHJlbm92YXRpb258ZW58MXx8fHwxNzcwNzM3NzMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Renovação">
+                        <div class="slide-caption">
+                            <h3>Renovação e Reforma</h3>
+                            <p>Transformamos espaços antigos em ambientes modernos.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1739599211500-74e04a9ca175?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25jcmV0ZSUyMHN0cnVjdHVyZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA3Mjg2NzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Estruturas de Concreto">
+                        <div class="slide-caption">
+                            <h3>Estruturas de Concreto</h3>
+                            <p>Fundações sólidas e estruturas resistentes para projetos duradouros.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav prev" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-nav next" onclick="nextSlide()">&#10095;</button>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(3)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(4)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <!-- <section class="contato fade-in-section" id="contato">
+        <div class="contato-content">
+            <h2>ENTRE EM CONTATO</h2>
+            <p>Vamos transformar seu projeto em realidade</p>
+            <form class="contato-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu projeto" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section> -->
 
     <section id="contato" class="contato">
         <div class="container">
@@ -403,15 +841,147 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Novare Engenharia Ltda. Todos os direitos reservados.</p>
-        </div>
+        <p>&copy; 2026 Novare Engenharia. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        document.querySelector('.btn-whatsapp').href = 'https://wa.me/553171829875?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20seus%20serviços.';
-        document.querySelector('.btn-telefone').href = 'tel:+553171829875';
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const faders = document.querySelectorAll('.fade-in-section');
+        
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Aqui você pode adicionar a lógica de envio do formulário
+            alert(`Obrigado, ${nome}! Sua mensagem foi recebida. Entraremos em contato em breve.`);
+            
+            // Limpar formulário
+            event.target.reset();
+        }
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(0, 33, 71, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #002147 0%, #003366 100%)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const dots = document.querySelectorAll('.carousel-dot');
+        let carouselInterval;
+
+        function updateSlide() {
+            const offset = -currentSlide * 100;
+            document.querySelector('.carousel-wrapper').style.transform = `translateX(${offset}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+            resetCarouselInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+            resetCarouselInterval();
+        }
+
+        function startCarouselAutoPlay() {
+            carouselInterval = setInterval(nextSlide, 10000); // 10 segundos
+        }
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            startCarouselAutoPlay();
+        }
+
+        // Initialize carousel
+        updateSlide();
+        startCarouselAutoPlay();
+
+        // Pause carousel on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            startCarouselAutoPlay();
+        });
+
+        
     </script>
 </body>
 </html>
